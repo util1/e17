@@ -1,0 +1,11 @@
+Per avere il BLOCCO NUMERICO della VM sincronizzato con l'host.
+Spegnere la VM e accendere il Blocco Numerico.
+Posizionarsi nel percorso del progr VirtualBox  ( C:\Program Files\Oracle\VirtualBox )
+Nel percorso Aprire una Shell Comandi (Non Amministrativa funziona lo stesso)
+ALT + F, S, A         (apre una PowerShell Amministrativa)
+Eseguire il seguente comando SOSTITUENDO  il nome della VM al posto di <Nome_VM>
+(in Shell Comandi CMD)
+VBoxManage setextradata "<Nome_VM>" GUI/HidLedsSync "0"
+(in PowerShell)
+.\VBoxManage setextradata "<Nome_VM>" GUI/HidLedsSync "0"
+L'esecuzione corretta del comando non restutuisce ouptut.
