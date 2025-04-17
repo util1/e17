@@ -1,0 +1,62 @@
+﻿--- Creo il container con nome asmysql con i parametri
+- variabile d’ambiente MYSQL_ROOT_PASSWORD, obbligatoria per mysql, a cui do il valore pwdmysql
+- imposto una porta interna al pc da collegare ad una porta del container con -p 9090:9090
+- -d per esecuzione in background
+- indico l’immagine da cui creare il container mysql:latest
+
+docker run --name asmysql -e MYSQL_ROOT_PASSWORD=pwdmysql -p 9090:9090 -d mysql:latest
+
+--- se l’immagine mysql:latest non è presente in locale cerca di scaricarla, impiega alcuni minuti, fa una serie di download e di estrazioni
+
+--- controllo che il container ci sia e sia up
+docker ps -a
+
+--- se container up entro nel container
+docker exec -it asmysql bash
+
+--- il promt cambia in ‘bash-5.1#’
+
+--- gli dico che voglio lavorare come utente root in mysql
+mysql -u root -p
+
+--- chiede la password che in base al primo comando è pwdmysql
+
+--- inserita la password il prompt diventa  ‘mysql>’
+
+--- creo il db con nome ANNADB --- importante!!! sempre ; alla fine dei comandi!!!---
+CREATE DATABASE ANNADB;
+
+--- dichiaro di voler usare il DB appena creato
+USE ANNADB;
+
+--- scrive ‘database changed’
+
+--- creo la tabella faq
+create table FAQ (id int NOT NULL AUTO_INCREMENT, domanda VARCHAR(255) NOT NULL, risposta VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, PRIMARY KEY (id));
+
+--- controllo la tabella creata
+describe FAQ;
+
+--- inserisco un record nella tabella, se voglio 2 o più record ripeto il comando con altri values
+
+insert into FAQ (DOMANDA, RISPOSTA, EMAIL) VALUES ('COME SI CHIAMA IL GESTORE DEL CONTAINER?', 'DOCKER', 'annamariaesse@libero.it'); 
+
+insert into FAQ (DOMANDA, RISPOSTA, EMAIL) VALUES ('COME SI CHIAMA IL GESTORE DEL DB?', 'MYSQL', 'LEOPOLDO.ZANINI@IOTALAB.COM');
+
+insert into FAQ (DOMANDA, RISPOSTA, EMAIL) VALUES ('COME SI CHIAMA LA TUTOR?', 'TINA', 'MITICA.TINA@TOPTUTOR.IT');
+
+---  controllo se i record sono stati inseriti nella tabella
+SELECT * FROM FAQ
+
+--- esco dal DBMS
+exit
+
+--- il prompt torna ‘bash-5.1#’
+
+
+--- esco dal container
+exit
+
+--- il prompt torna ‘studente@itfs:~/Scrivania/Esame$’ 
+
+--- sono di nuovo nel terminale della macchina Debian gentilmente fornita da Eliseo
