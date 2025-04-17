@@ -1,0 +1,33 @@
+services:
+  db:
+    image: mysql:8.0-debian
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: <NOME_DB>
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - /home/studente/Scrivania/Esame/db_data:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      internal:
+        ipv4_address: 172.18.0.3
+  web:
+    image: <NOME_IMMAGINE>
+    container_name: webservice
+    ports:
+      - "8080:80"
+    restart: unless-stopped  
+    networks:
+      - internal
+    depends_on:
+      - db
+      
+networks:
+  internal: 
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/24
+          gateway: 172.18.0.1
