@@ -1,0 +1,17 @@
+# Dockerfile aggiornato con PHP e Apache recenti
+FROM php:8.2-apache
+
+WORKDIR /var/www/html
+
+COPY ./sito .
+
+# Aggiornamento dei pacchetti e installazione di estensioni PHP necessarie
+RUN apt-get update && \
+    apt-get install -y libpng-dev && \
+    docker-php-ext-install pdo pdo_mysql gd && \
+    docker-php-ext-install mysqli
+
+# Espone il servizio sulla porta 80 TCP   
+EXPOSE 80
+
+CMD ["apache2-foreground"] 
