@@ -1,0 +1,47 @@
+Comandi MySQL
+Una volta all'interno del container MySQL, lanciare il comando per entrare nel terminale di MySQL:
+mysql -u user -p
+ed inserire la password ("password")
+Lanciate il comando:
+SHOW DATABASES;
+e controllate che sia presente il db creato dal Docker Compose (deve avere lo stesso nome che avete inserito voi)
+Lanciate il comando:
+USE <nomeDB>;
+e la console vi risponderà con "Database changed"
+Usate il codice qui sotto per creare una tabella.
+Sostituite i campi tra "< >" (compresi!) con ciò che viene richiesto.
+CONSIGLIO: COPIATE RIGA PER RIGA, COSÌ AVETE LA POSSIBILITÀ DI MODIFICARE CIÒ CHE AVETE COPIATO!
+
+CREATE TABLE <nomeTabella>(
+    ID INT NOT NULL AUTO_INCREMENT,
+    <primaColonna> VARCHAR(255) NOT NULL,
+    <secondaColonna> VARCHAR(255) NOT NULL,
+    <terzaColonna> VARCHAR(255) NOT NULL,
+    PRIMARY KEY (ID)
+);
+                    
+Usate il codice qui sotto per inserire i dati nella tabella.
+Sostituite i campi tra "< >" (compresi!) con ciò che viene richiesto.
+CONSIGLIO: COPIATE RIGA PER RIGA, COSÌ AVETE LA POSSIBILITÀ DI MODIFICARE CIÒ CHE AVETE COPIATO!
+
+INSERT INTO <nomeTabella>(<primaColonna>, <secondaColonna>, <terzaColonna>)
+    VALUES
+    ("Valore1", "Valore2", "Valore3"),
+    ("Valore1", "Valore2", "Valore3"),
+    ("Valore1", "Valore2", "Valore3"),
+    ("Valore1", "Valore2", "Valore3")
+;
+
+Usate il codice qui sotto per aggiungere una colonna alla tabella.
+Sostituite i campi tra "< >" (compresi!) con ciò che viene richiesto.
+CONSIGLIO: COPIATE RIGA PER RIGA, COSÌ AVETE LA POSSIBILITÀ DI MODIFICARE CIÒ CHE AVETE COPIATO!
+
+ALTER TABLE <nomeTabella>
+ADD <nomeColonna> <tipo> <argomento>;
+
+Usate il codice qui sotto per modificare il nome di una colonna della tabella.
+Sostituite i campi tra "< >" (compresi!) con ciò che viene richiesto.
+CONSIGLIO: COPIATE RIGA PER RIGA, COSÌ AVETE LA POSSIBILITÀ DI MODIFICARE CIÒ CHE AVETE COPIATO!
+
+ALTER TABLE <nomeTabella>
+RENAME COLUMN <nomeVecchio> TO <nomeNuovo>;
