@@ -1,0 +1,25 @@
+File Utili
+QUI trovate un file per la parte di Senzacqua (Reti) già strutturato con l'esercizio della simulazione d'esame.
+https://drive.google.com/file/d/165Z5oaWgDgTmuZm2Yfhuj2ptA_WteU1A/view?usp=drive_link
+Aprite Draw.io, cliccate su "Dispositivo" -> "Apri diagramma esistente" e caricate il file appena scaricato.
+QUI trovate un Dockerfile già strutturato. GUIDA DOCKERFILE
+QUI trovate un file Docker Compose (.yaml) già pronto. GUIDA DOCKER COMPOSE
+QUI trovate un file di riepilogo stilato da Annamaria
+https://drive.google.com/file/d/1gtpIqsUNEq4l9jcQ26dfcmE-KhxQXdKs/view?usp=drive_link
+QUI trovate una cartella "Esame" già pronta.
+https://drive.google.com/file/d/1BvwryNkSBlngGS7VnVt_oEWnZBXQWYsJ/view?usp=drive_link
+Per utilizzarla al meglio:
+    Scaricatela e scompattatela sul desktop (/home/studente/Scrivania)
+    Apritela, poi cliccate dentro col tasto destro e cliccate "Apri Terminale qui"
+    Eseguite questo comando:
+    chmod -R 777 .
+    Fatto. Ora avete tutto pronto. Buon lavoro!
+Step da seguire:
+    Modificare sito/index.php: inserite "NOME_DB" e quello che serve per l'esame.
+    Lanciare il comando per il Dockerfile e creare l'immagine.
+    Modificare compose.yaml: inserite "NOME_DB" e "NOME_IMMAGINE"
+    Lanciate Docker Compose: se avete il file rinominato in "compose.yaml" lanciate il primo comando,
+       altrimenti usate quello consigliato.
+    Inserite dati DB;
+    Aprite il browser, digitate "localhost:8080" e controllate che funzioni
+    Se funziona, hai finito.
